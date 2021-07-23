@@ -48,23 +48,22 @@ var User = /** @class */ (function () {
         this.status = status;
     }
     User.prototype.getName = function () {
-        console.log(this._name);
         return this._name;
     };
-    User.prototype.setName = function (value) {
-        this._name = value;
+    User.prototype.setName = function (newName) {
+        this._name = newName;
     };
     User.prototype.getAge = function () {
         return this._age;
     };
-    User.prototype.setAge = function (value) {
-        this._age = value;
+    User.prototype.setAge = function (newAge) {
+        this._age = newAge;
     };
     User.prototype.getCity = function () {
         return this._city;
     };
-    User.prototype.setCity = function (value) {
-        this._city = value;
+    User.prototype.setCity = function (newCity) {
+        this._city = newCity;
     };
     User.prototype.changeStatus = function (newStatus) {
         this.status = newStatus;
@@ -77,3 +76,41 @@ karina.setCity('Kyiv');
 console.log(karina.getCity());
 karina.changeStatus(false);
 console.log(karina);
+var Cat = /** @class */ (function () {
+    function Cat(animalSounds, typeOfMovement) {
+        this.animalSounds = animalSounds;
+        this.typeOfMovement = typeOfMovement;
+    }
+    Cat.prototype.animalInfo = function () {
+        return "animalSounds: " + this.animalSounds + ", typeOfMovement: " + this.typeOfMovement;
+    };
+    return Cat;
+}());
+var Bird = /** @class */ (function () {
+    function Bird(animalSounds, typeOfMovement, name) {
+        this.animalSounds = animalSounds;
+        this.typeOfMovement = typeOfMovement;
+        this.name = name;
+    }
+    Bird.prototype.animalInfo = function () {
+        return "name: " + this.name + ", animalSounds: " + this.animalSounds + ", typeOfMovement: " + this.typeOfMovement;
+    };
+    return Bird;
+}());
+var Fish = /** @class */ (function () {
+    function Fish(animalSounds, typeOfMovement, age) {
+        this.animalSounds = animalSounds;
+        this.typeOfMovement = typeOfMovement;
+        this.age = age;
+    }
+    Fish.prototype.animalInfo = function () {
+        return "age: " + this.age + ", animalSounds: " + this.animalSounds + ", typeOfMovement: " + this.typeOfMovement;
+    };
+    return Fish;
+}());
+var rudy = new Cat('Meaw!', 'walks');
+rudy.animalInfo();
+var kesha = new Bird('Karrr', 'flies', 'Kesha');
+kesha.animalInfo();
+var nemo = new Fish('Bulk', 'swims', 2);
+nemo.animalInfo();

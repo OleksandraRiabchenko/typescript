@@ -1,16 +1,16 @@
 // 1. Создать интерфейс по такой объект:
 
-interface UserInfo{
+interface UserInfo {
     id: number;
     name: string;
     username: string;
     email: string;
     address: {
         street: string;
-        suite:string;
+        suite: string;
         city: string;
-        zipcode:string;
-        geo:{
+        zipcode: string;
+        geo: {
             lat: number;
             lng: number;
         }
@@ -25,35 +25,35 @@ interface UserInfo{
 }
 
 const user: UserInfo = {
-        id: 1,
-        name: "Leanne Graham",
-        username: "Bret",
-        email: "Sincere@april.biz",
-        address: {
-            street: "Kulas Light",
-            suite: "Apt. 556",
-            city: "Gwenborough",
-            zipcode: "92998-3874",
-            geo: {
-                lat: -37.3159,
-                lng: 81.1496
-            }
-        },
-        phone: "1-770-736-8031 x56442",
-        website: "hildegard.org",
-        company: {
-            name: "Romaguera-Crona",
-            catchPhrase: "Multi-layered client-server neural-net",
-            bs: "harness real-time e-markets"
-        }};
+    id: 1,
+    name: "Leanne Graham",
+    username: "Bret",
+    email: "Sincere@april.biz",
+    address: {
+        street: "Kulas Light",
+        suite: "Apt. 556",
+        city: "Gwenborough",
+        zipcode: "92998-3874",
+        geo: {
+            lat: -37.3159,
+            lng: 81.1496
+        }
+    },
+    phone: "1-770-736-8031 x56442",
+    website: "hildegard.org",
+    company: {
+        name: "Romaguera-Crona",
+        catchPhrase: "Multi-layered client-server neural-net",
+        bs: "harness real-time e-markets"
+    }
+};
 
 // 2.типизировать эту функцию:
 //     function concat(text1, text2) {
 //         return text1 + text2
 //     }
 
-
-function concat(text1:string, text2:string): string {
+function concat(text1: string, text2: string): string {
     return text1 + text2
 }
 
@@ -69,11 +69,11 @@ console.log(concat('conca', 'tenation'));
 // setCity
 // changeStatus
 //TODO не впевнена, що вірно зрозуміла умову завдання
-class User{
-    private _name:string;
-    private _age:number;
-    private _city:string;
-    private status:boolean;
+class User {
+    private _name: string;
+    private _age: number;
+    private _city: string;
+    private status: boolean;
 
     constructor(name: string, age: number, city: string, status: boolean) {
         this._name = name;
@@ -86,16 +86,16 @@ class User{
         return this._name;
     }
 
-    setName(value: string) {
-        this._name = value;
+    setName(newName: string) {
+        this._name = newName;
     }
 
     getAge(): number {
         return this._age;
     }
 
-    setAge(value: number) {
-        this._age = value;
+    setAge(newAge: number) {
+        this._age = newAge;
     }
 
 
@@ -103,16 +103,16 @@ class User{
         return this._city;
     }
 
-    setCity(value: string) {
-        this._city = value;
+    setCity(newCity: string) {
+        this._city = newCity;
     }
 
-    changeStatus(newStatus: boolean){
+    changeStatus(newStatus: boolean) {
         this.status = newStatus
     }
 }
 
-const karina = new User('Karina',15, 'Lviv', true);
+const karina = new User('Karina', 15, 'Lviv', true);
 
 console.log(karina.getName())
 karina.setCity('Kyiv')
@@ -128,17 +128,66 @@ console.log(karina)
 // создать три класса Cat, Bird, Fish и имплементировать для каждого интерфейс Animal
 
 
-
-
-interface Animal{
-    typeOfMovement: string;
+interface Animal {
     animalSounds: string;
+    typeOfMovement: string;
 
     animalInfo(): string;
 }
 
-class Cat implements Animal{
+class Cat implements Animal {
+    animalSounds: string;
+    typeOfMovement: string;
 
+    constructor(animalSounds: string, typeOfMovement: string) {
+        this.animalSounds = animalSounds;
+        this.typeOfMovement = typeOfMovement;
+    }
+
+    animalInfo(): string {
+        return `animalSounds: ${this.animalSounds}, typeOfMovement: ${this.typeOfMovement}`;
+    }
 }
+
+class Bird implements Animal {
+    animalSounds: string;
+    typeOfMovement: string;
+    name: string
+
+    constructor(animalSounds: string, typeOfMovement: string, name: string) {
+        this.animalSounds = animalSounds;
+        this.typeOfMovement = typeOfMovement;
+        this.name = name;
+    }
+
+    animalInfo(): string {
+        return `name: ${this.name}, animalSounds: ${this.animalSounds}, typeOfMovement: ${this.typeOfMovement}`;
+    }
+}
+
+class Fish implements Animal {
+    animalSounds: string;
+    typeOfMovement: string;
+    age: number;
+
+    constructor(animalSounds: string, typeOfMovement: string, age: number) {
+        this.animalSounds = animalSounds;
+        this.typeOfMovement = typeOfMovement;
+        this.age = age;
+    }
+
+    animalInfo(): string {
+        return `age: ${this.age}, animalSounds: ${this.animalSounds}, typeOfMovement: ${this.typeOfMovement}`;
+    }
+}
+
+const rudy = new Cat('Meaw!', 'walks');
+rudy.animalInfo()
+
+const kesha = new Bird('Karrr', 'flies', 'Kesha');
+kesha.animalInfo();
+
+const nemo = new Fish('Bulk', 'swims', 2);
+nemo.animalInfo()
 
 
